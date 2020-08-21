@@ -1,22 +1,23 @@
 import image from './assets/image.png'
+import {ImageBlock, TextBlock, TextColumnsBlock, TitleBlock} from './classes/block'
 
 export const model = [
-  {type: 'title', value: 'Конструктор сайтов на чистои JavaScript', options: {
+  new TitleBlock('Конструктор сайтов на чистои JavaScript', {
     tag: 'h3',
     styles: 'background: #63a7f0; color: #fff; text-align: center; padding: 1.5rem'
-  }},
-  {type: 'image', value: image, options: {
+  }),
+  new ImageBlock(image, {
     alt: 'my image',
     imageStyles: 'width: 100%; height: auto'
-  }},
-  {type: 'text', value: 'Новости недели', options: {
+  }),
+  new TextBlock('Новости недели', {
     styles: 'background: #fafaff; color: black; padding: 10px'
-  }},
-  {type: 'textColumns', value: [
+  }),
+  new TextColumnsBlock([
     'Ninja поставил 420 069 долларов на аукционе для получения собственного скина в Fall Guys',
     'Отличный перезапуск или просто ностальгический трюк? Мнения критиков о новой Battletoads разделились ',
     'Epic Games обозначила примерную дату начала продаж PS5 и Xbox Series X'
-  ], options: {
+  ], {
     styles: 'background: #fafaff; padding: 1rem'
-  }}
+  }),
 ]
