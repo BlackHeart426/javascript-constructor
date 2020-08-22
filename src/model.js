@@ -8,7 +8,7 @@ export const model = [
     styles: css({
       background: '#63a7f0',
       color: '#fff',
-      'text-align': 'center',
+      textAlign: 'center',
       padding: '1.5rem'
     })
   }),
@@ -20,7 +20,7 @@ export const model = [
     styles: css({
       background: '#fafaff',
       color: 'black',
-      'text-align': 'center',
+      textAlign: 'center',
       padding: '10px'
     })
   }),

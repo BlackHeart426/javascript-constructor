@@ -8,6 +8,10 @@ export function col(content) {
 }
 
 export function css(styles = {}) {
-  const toString = key => `${key}: ${styles[key]}`
+  const toString = key => `${camelToDashCase(key)}: ${styles[key]}`
   return Object.keys(styles).map(toString).join(';')
+}
+
+export function camelToDashCase(str) {
+  return str.replace(/([A-Z])/g, g => `-${g[0].toLowerCase()}`)
 }
