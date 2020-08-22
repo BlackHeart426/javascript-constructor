@@ -7,7 +7,13 @@ import {Sidebar} from "./classes/sidebar";
 
 const site = new Site('#site')
 
-new Sidebar('#panel')
+//Переписать на Observer
+const updateCallback = newBlock => {
+  model.push(newBlock)
+  site.render(model)
+}
+
+new Sidebar('#panel', updateCallback)
 
 site.render(model)
 

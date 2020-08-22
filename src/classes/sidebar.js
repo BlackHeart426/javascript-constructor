@@ -1,7 +1,8 @@
 import {TitleBlock, TextBlock} from './block'
 
 export class Sidebar {
-  constructor(selector) {
+  constructor(selector, update) {
+    this.update = update
     this.$el = document.querySelector(selector)
 
     this.init()
@@ -9,7 +10,7 @@ export class Sidebar {
 
 
   init() {
-    this.$el.addEventListener('submit', this.addBlock)
+    this.$el.addEventListener('submit', this.addBlock.bind(this))
     this.$el.innerHTML = this.template
   }
 
@@ -30,6 +31,7 @@ export class Sidebar {
     const Constructor = type === 'text' ? TextBlock : TitleBlock
 
     const newBlock = new Constructor(controlValue, {controlStyles})
+    this.update(newBlock)
 
     event.target.value.value = ''
     event.target.styles.value = ''
