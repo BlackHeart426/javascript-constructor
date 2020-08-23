@@ -1,4 +1,4 @@
-import {TitleBlock, TextBlock} from './block'
+import {Constructor} from "./constructor";
 
 export class Sidebar {
   constructor(selector, update) {
@@ -27,11 +27,8 @@ export class Sidebar {
     const controlValue = event.target.value.value
     const controlStyles = event.target.styles.value
 
-    //Переписать ан классы
-    const Constructor = type === 'text' ? TextBlock : TitleBlock
-
-    const newBlock = new Constructor(controlValue, {controlStyles})
-    this.update(newBlock)
+    const constructor = new Constructor(type, controlValue, {styles: controlStyles})
+    this.update(constructor.block)
 
     event.target.value.value = ''
     event.target.styles.value = ''

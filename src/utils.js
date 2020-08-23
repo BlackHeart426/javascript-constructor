@@ -1,4 +1,5 @@
 export function row(content, styles = '') {
+  console.log(styles)
   const style = `margin: 0; ${styles}`
   return `<div class="row" style="${style}">${content}</div>`
 }
